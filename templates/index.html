@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Student Registry</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="top-bar">
+    <div class="brand">
+        <span class="brand-badge">SR</span>
+        <h2>Student Registry</h2>
+    </div>
+    <div class="user-info">
+        <span class="welcome-pill">👋 {{ username }}</span>
+        <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
+    </div>
+</div>
+
+<div class="page-wrap">
+    <div class="container">
+        <div class="section-heading">
+            <span class="dot-index">01</span>
+            <h3 id="formTitle">Add Student</h3>
+        </div>
+        <form id="studentForm">
+            <input type="hidden" id="editId" value="">
+            <input type="text" id="roll" placeholder="Roll Number" required>
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="text" id="dept" placeholder="Department" required>
+            <input type="email" id="email" placeholder="Gmail Address" required>
+            <input type="text" id="phone" placeholder="Phone Number" required>
+            <button type="submit" id="formSubmitBtn" class="btn btn-primary">Add Student</button>
+            <button type="button" id="cancelEditBtn" class="btn btn-muted" style="display:none;">Cancel</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="section-heading">
+            <span class="dot-index">02</span>
+            <h3>My Students</h3>
+        </div>
+        <div class="table-scroll">
+            <table id="studentsTable">
+                <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
